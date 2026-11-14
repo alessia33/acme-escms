@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Lists everything that makes up the ACME ESCMS solution.
+  Used once the org is finished, to copy the parts built in Setup into this project
+  (the command is in README.md).
+  Named Credential and External Credential are left out on purpose (see README.md).
+-->
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Venue__c</members>
+        <members>Course__c</members>
+        <members>Employee__c</members>
+        <members>Training_Session__c</members>
+        <members>Enrollment__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Venue__c</members>
+        <members>Course__c</members>
+        <members>Employee__c</members>
+        <members>Training_Session__c</members>
+        <members>Enrollment__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>ACME_Trainer</members>
+        <members>ACME_Manager</members>
+        <members>ACME_HR_Integration</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>ACME_ESCMS</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>CourseCompletionJob</members>
+        <members>CourseHRSyncTest</members>
+        <members>CourseTriggerHandler</members>
+        <members>EnrollmentEmailService</members>
+        <members>EnrollmentManagerController</members>
+        <members>EnrollmentManagerControllerTest</members>
+        <members>EnrollmentSharingService</members>
+        <members>EnrollmentTriggerHandler</members>
+        <members>EnrollmentTriggerHandlerTest</members>
+        <members>HRSyncQueueable</members>
+        <members>TestDataFactory</members>
+        <members>TrainerWeeklyScheduleJob</members>
+        <members>TrainerWeeklyScheduleJobTest</members>
+        <members>TrainingSessionTriggerHandler</members>
+        <members>TrainingSessionTriggerHandlerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CourseTrigger</members>
+        <members>EnrollmentTrigger</members>
+        <members>TrainingSessionTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>enrollmentManager</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>62.0</version>
+</Package>

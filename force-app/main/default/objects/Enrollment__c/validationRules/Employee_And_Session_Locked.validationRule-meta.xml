@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_And_Session_Locked</fullName>
+    <active>true</active>
+    <description>An enrollment always belongs to the same employee and session. To move an employee,
+cancel this enrollment and create a new one. Keeps the history and the sharing correct</description>
+    <errorConditionFormula>AND(
+  NOT( ISNEW() ),
+  OR( ISCHANGED( Employee__c ), ISCHANGED( Training_Session__c ) )
+)</errorConditionFormula>
+    <errorMessage>The employee and the session of an enrollment cannot be changed. Cancel this enrollment
+and create a new one.</errorMessage>
+</ValidationRule>

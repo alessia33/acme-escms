@@ -1,0 +1,88 @@
+<template>
+    <lightning-card title="Enroll My Team" icon-name="standard:education">
+        <div class="slds-var-p-horizontal_medium slds-is-relative">
+            <lightning-combobox
+                name="course"
+                label="Course"
+                placeholder="Select a course"
+                value={selectedCourseId}
+                options={courseOptions}
+                onchange={handleCourseChange}>
+            </lightning-combobox>
+
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+
+            <template lwc:if={errorMessage}>
+                <p class="slds-text-color_error slds-var-m-top_small">{errorMessage}</p>
+            </template>
+
+            <template lwc:if={showNoSessions}>
+                <p class="slds-var-m-top_medium">
+                    This course has no scheduled sessions in the next 3 months.
+                </p>
+            </template>
+
+            <template lwc:if={showNoEmployees}>
+                <p class="slds-var-m-top_medium">No employees report to you.</p>
+            </template>
+
+            <template lwc:if={showTable}>
+                <div class="slds-scrollable_x slds-var-m-top_medium">
+                    <table
+                        class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+                        aria-label="Employees and available training sessions">
+                        <thead>
+                            <tr>
+                                <th scope="col">Employee</th>
+                                <template for:each={sessions} for:item="session">
+                                    <th key={session.sessionId} scope="col">
+                                        <div>{session.name}</div>
+                                        <div class="slds-text-body_small">
+                                            <lightning-formatted-date-time
+                                                value={session.startTime}
+                                                year="numeric" month="short" day="2-digit"
+                                                hour="2-digit" minute="2-digit">
+                                            </lightning-formatted-date-time>
+                                        </div>
+                                        <div class="slds-text-body_small">{session.subtitle}</div>
+                                    </th>
+                                </template>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={rows} for:item="row">
+                                <tr key={row.employeeId}>
+                                    <th scope="row">{row.name}</th>
+                                    <template for:each={row.cells} for:item="cell">
+                                        <td key={cell.key} class="slds-text-align_center">
+                                            <lightning-input
+                                                type="checkbox"
+                                                variant="label-hidden"
+                                                label={cell.label}
+                                                checked={cell.checked}
+                                                disabled={cell.disabled}
+                                                data-employee-id={cell.employeeId}
+                                                data-session-id={cell.sessionId}
+                                                onchange={handleToggle}>
+                                            </lightning-input>
+                                        </td>
+                                    </template>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="slds-var-m-top_medium">
+                    <lightning-button
+                        variant="brand"
+                        label="Save Enrollments"
+                        onclick={handleSave}
+                        disabled={saveDisabled}>
+                    </lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

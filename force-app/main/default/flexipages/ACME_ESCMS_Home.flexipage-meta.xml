@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>enrollmentManager</componentName>
+                <identifier>c_enrollmentManager</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>decorate</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>richTextValue</name>
+                    <value>&lt;p&gt;&lt;strong&gt;How to enroll your team &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1. Choose a course. &lt;/p&gt;&lt;p&gt;2. Tick the sessions each employee should attend. Untick to cancel. &lt;/p&gt;&lt;p&gt;3. Click Save Enrollments. Employees receive an email. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Rules: a session cannot exceed its seats, an employee cannot be in two sessions at the same time, and nothing can change in the 24 hours before a session starts.&lt;/p&gt;</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:richText</componentName>
+                <identifier>flexipage_richText</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>sidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>ACME ESCMS Home</masterLabel>
+    <template>
+        <name>runtime_cdp:cdpHomeDesktopTemplate</name>
+    </template>
+    <type>HomePage</type>
+</FlexiPage>

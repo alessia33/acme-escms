@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Freeze_24h_Before_Start</fullName>
+    <active>true</active>
+    <description>Requirement 3: no change to a session during the 24 hours before it starts, or after it has
+started. Uses the start time as it was before the edit</description>
+    <errorConditionFormula>AND(
+  NOT( ISNEW() ),
+  PRIORVALUE( Start_Time__c ) - NOW() &lt; 1,
+  OR(
+    ISCHANGED( Start_Time__c ),
+    ISCHANGED( End_Time__c ),
+    ISCHANGED( Venue__c ),
+    ISCHANGED( Trainer__c ),
+    ISCHANGED( Course__c ),
+    ISCHANGED( Status__c )
+ )
+)</errorConditionFormula>
+    <errorMessage>This session starts in less than 24 hours (or has already started) and can no longer be
+changed.</errorMessage>
+</ValidationRule>

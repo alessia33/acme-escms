@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Freeze_24h_Before_Start</fullName>
+    <active>true</active>
+    <description>Requirement 3: no new enrollment and no cancellation during the 24 hours before the
+session starts, or after it has started</description>
+    <errorConditionFormula>AND(
+  Training_Session__r.Start_Time__c - NOW() &lt; 1,
+  OR( ISNEW(), ISCHANGED( Status__c ) )
+)</errorConditionFormula>
+    <errorMessage>Enrollments are frozen 24 hours before the session starts</errorMessage>
+</ValidationRule>

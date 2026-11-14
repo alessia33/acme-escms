@@ -1,0 +1,23 @@
+# Salesforce CLI and VS Code extension folders: local settings and caches
+# about your own org connection. They are not part of the solution.
+.sf/
+.sfdx/
+.localdevserver/
+
+# The Named Credential holds the private address of the HR test endpoint.
+# It is documented in README.md instead of being published.
+**/namedCredentials/
+**/externalCredentials/
+
+# Files that typically hold secrets
+.env
+.env.*
+*.key
+*.pem
+authurl*.txt
+
+# Operating system and tool leftovers
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
